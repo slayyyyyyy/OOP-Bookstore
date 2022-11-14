@@ -1,0 +1,113 @@
+#include <iostream>
+#include<vector>
+#include<string>
+
+
+class Carte{
+private:
+    std::string nume;
+    std::string autor;
+    std::string genre;
+    int nr_pag;
+    float pret;
+public:
+    Carte(const std::string& nume_,const std::string& autor_,const std::string& genre_, int nr_pag_, float pret_ ) : nume{nume_}, autor{autor_}, genre{genre_}, nr_pag{nr_pag_}, pret{pret_}
+        {std::cout<<"constructor Carte"<<'\n';};
+    friend std::ostream& operator<<(std::ostream& os, const Carte& Carte)
+    {
+        os<<Carte.nume<<" "<<Carte.autor<<" "<<Carte.genre<<" "<<Carte.nr_pag<<" "<<Carte.pret;
+        return os;
+    }
+
+    friend void aplicare_red(Carte &x,Fidelitate &y);
+};
+
+class Distribuitor{
+private:
+    int id_distribuitor;
+    std::string nume;
+    std::string adresa;
+public:
+    Distribuitor(int id_distribuitor_, const std::string& nume_,const std::string& adresa_) : id_distribuitor{id_distribuitor_}, nume{nume_}, adresa{adresa_}
+        {std::cout<<"constructor Distribuitor"<<'\n';};
+    friend std::ostream& operator<<(std::ostream& os, const Distribuitor& Distribuitor)
+    {
+        os<<Distribuitor.id_distribuitor<<" "<<Distribuitor.nume<<" "<<Distribuitor.adresa;
+        return os;
+    }
+};
+
+class Angajat{
+private:
+    std::string nume;
+    int id_angajat;
+    float salariu;
+public:
+    Angajat(const std::string& nume_, int id_angajat_,float salariu_) : nume{nume_}, id_angajat{id_angajat_}, salariu{salariu_}
+        {std::cout<<"constructor Angajat"<<'\n';};
+    Angajat(const Angajat& other) : nume{other.nume}, id_angajat{other.id_angajat}, salariu{other.salariu} {std::cout<<"Constructor de copiere Angajat\n";}
+    Angajat& operator=(const Angajat& other)
+    {
+        nume = other.nume;
+        id_angajat = other.id_angajat;
+        salariu = other.salariu;
+        return *this;
+    } //operator= + de adaugat constructor de copiere
+    ~Angajat() {}; //destructor
+    friend std::ostream& operator<<(std::ostream& os,const Angajat& Angajat)
+    {
+        os<<Angajat.nume<<" "<<Angajat.id_angajat<<" "<<Angajat.salariu;
+        return os;
+    }
+
+};
+
+class Fidelitate{
+private:
+    std::string nume;
+    std::string nr_tlf;
+    std::string email;
+    int reducere=0;
+    int perioada_fid;
+public:
+    Fidelitate(const std::string& nume_, const std::string& nr_tlf_, const std::string email_, int reducere_) : nume{nume_}, nr_tlf{nr_tlf_}, email{email_}, reducere{reducere_}
+
+            {std::cout<<"constructor Fidelitate"<<'\n';};
+    friend std::ostream& operator<<(std::ostream& os, const Fidelitate& Fidelitate)
+    {
+        os<<Fidelitate.nume<<" "<<Fidelitate.nr_tlf<<" "<<Fidelitate.email<<" "<<Fidelitate.reducere;
+        return os;
+    }
+    void red_fid();
+    void aplicare_red(Carte &x,Fidelitate &y);
+
+};
+
+class Librarie{
+    Carte crt;
+    Angajat ang;
+    Distribuitor dis;
+    Fidelitate fid;
+};
+
+void red_fid(Fidelitate &x)
+{
+    if(perioada_fid>=2) reducere=10;
+    if(perioada_fid>=6) reducere=20;
+    if(perioada_fid>=12) reducere=45;
+}
+
+void aplicare_red(Carte &x,Fidelitate &y)
+{
+    if (y.reducere!=0) x.pret=x.pret-y.reducere*x.pret/100;
+}
+
+int main()
+{
+    Carte C1{"1984","George Orwell","distopie",326,20};
+    Distribuitor D1{1,"Bookdepot","Calea Plevnei"};
+
+
+    std::cout<<C1<<" "<<D1;
+    return 0;
+}
