@@ -72,12 +72,12 @@ private:
     int perioada_fid;
     Carte x;
 public:
-    Fidelitate(const std::string& nume_, const std::string& nr_tlf_, const std::string& email_, int reducere_) : nume{nume_}, nr_tlf{nr_tlf_}, email{email_}, reducere{reducere_}, perioada_fid{perioada_fid_}, Carte{x_}
+    Fidelitate(const std::string& nume_, const std::string& nr_tlf_, const std::string& email_, int reducere_, int perioada_fid_, Carte x_) : nume{nume_}, nr_tlf{nr_tlf_}, email{email_}, reducere{reducere_}, perioada_fid{perioada_fid_}, Carte{x_}
 
             {std::cout<<"constructor Fidelitate"<<'\n';};
     friend std::ostream& operator<<(std::ostream& os, const Fidelitate& Fidelitate)
     {
-        os<<Fidelitate.nume<<" "<<Fidelitate.nr_tlf<<" "<<Fidelitate.email<<" "<<Fidelitate.reducere<<" "<<Fidelitate.perioada_red<<" "<<Fidelitate.x;
+        os<<Fidelitate.nume<<" "<<Fidelitate.nr_tlf<<" "<<Fidelitate.email<<" "<<Fidelitate.reducere<<" "<<Fidelitate.perioada_fd<<" "<<Fidelitate.x;
         return os;
     }
 
@@ -103,7 +103,7 @@ class Librarie{
     Distribuitor dis;
     Fidelitate fid;
 public:
-    Librarie(Carte crt_, Angajat ang_, Distribuitor dis_, Fidelitate fid_) : crt{crt_}, ang{ang_}, fid{fid_}
+    Librarie(Carte crt_, Angajat ang_, Distribuitor dis_, Fidelitate fid_) : crt{crt_}, ang{ang_}, dis{dis_}, fid{fid_}
         {std::cout<<"constructor Librarie"<<'\n';};
     friend std::ostream& operator<<(std::ostream& os, const Librarie& Librarie)
     {
