@@ -18,6 +18,9 @@ public:
         os<<Carte.nume<<" "<<Carte.autor<<" "<<Carte.genre<<" "<<Carte.nr_pag<<" "<<Carte.pret;
         return os;
     }
+
+    float getpret() const {return pret;}
+    void setpret (float pret_) {pret=pret_;}
 };
 
 class Distribuitor{
@@ -65,16 +68,32 @@ private:
     std::string nume;
     std::string nr_tlf;
     std::string email;
-    int reducere;
+    int reducere=0;
+    int perioada_fid;
+    Carte x;
 public:
-    Fidelitate(const std::string& nume_, const std::string& nr_tlf_, const std::string email_, int reducere_) : nume{nume_}, nr_tlf{nr_tlf_}, email{email_}, reducere{reducere_}
+    Fidelitate(const std::string& nume_, const std::string& nr_tlf_, const std::string& email_, int reducere_) : nume{nume_}, nr_tlf{nr_tlf_}, email{email_}, reducere{reducere_}, perioada_fid{perioada_fid_}, Carte{x_}
 
             {std::cout<<"constructor Fidelitate"<<'\n';};
     friend std::ostream& operator<<(std::ostream& os, const Fidelitate& Fidelitate)
     {
-        os<<Fidelitate.nume<<" "<<Fidelitate.nr_tlf<<" "<<Fidelitate.email<<" "<<Fidelitate.reducere;
+        os<<Fidelitate.nume<<" "<<Fidelitate.nr_tlf<<" "<<Fidelitate.email<<" "<<Fidelitate.reducere<<" "<<Fidelitate.perioada_red<<" "<<Fidelitate.x;
         return os;
     }
+
+    void aplicare_red()
+    {
+        if(perioada_fid>=2 && perioada_fid<6) reducere=10;
+         if(perioada_fid>=6 && perioada_fid<12) reducere=20;
+         if(perioada_fid>=12) reducere=45; 
+        if (reducere!=0) 
+        {
+            float y=x.getpret()-reducere*x.getpret()/100;
+            x.setpret(y);
+            std::cout<<x.getpret();
+        }
+    };
+
 
 };
 
@@ -83,14 +102,26 @@ class Librarie{
     Angajat ang;
     Distribuitor dis;
     Fidelitate fid;
+public:
+    Librarie(Carte crt_, Angajat ang_, Distribuitor dis_, Fidelitate fid_) : crt{crt_}, ang{ang_}, fid{fid_}
+        {std::cout<<"constructor Librarie"<<'\n';};
+    friend std::ostream& operator<<(std::ostream& os, const Librarie& Librarie)
+    {
+        os<<Librarie.crt<<" "<<Librarie.ang<<" "<<Librarie.dis<<" "<<Librarie.fid;
+        return os;
+    }
 };
 
 int main()
 {
-    Carte C1{"1984","George Orwell","distopie",326,20};
-    Distribuitor D1{1,"Bookdepot","Calea Plevnei"};
-
-
-    std::cout<<C1<<" "<<D1;
+    std::vector<Carte> crt;
+    std::vector<Distribuitor> dis;
+    std::vector<Angajat> ang;
+    std::vector<Fidelitate> fid;
+    crt.push_back(Carte("1984", "George Orwell","distopie",224, 20 ));
+    dis.push_back(Distribuitor(12345, "Bookdepot", "Calea Plevnei 45" ));
+    ang.push_back(Angajat("Cosmin Andrei",15 ,2345.60 ));
+    fid.push_back(Fidelitate("Trifoi Margareta", "0721456790", "trifoi@margareta.ro", 20, 4));
+    aplicare_red();
     return 0;
 }
