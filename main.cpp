@@ -72,12 +72,13 @@ private:
     int perioada_fid;
     Carte x;
 public:
-    Fidelitate(const std::string& nume_, const std::string& nr_tlf_, const std::string& email_, int reducere_, int perioada_fid_, Carte x_) : nume{nume_}, nr_tlf{nr_tlf_}, email{email_}, reducere{reducere_}, perioada_fid{perioada_fid_}, Carte{x_}
+    Fidelitate(const std::string& nume_, const std::string& nr_tlf_, const std::string& email_, int reducere_, int perioada_fid_, Carte x_) : 
+    nume{nume_}, nr_tlf{nr_tlf_}, email{email_}, reducere{reducere_}, perioada_fid{perioada_fid_}, x{x_}
 
             {std::cout<<"constructor Fidelitate"<<'\n';};
     friend std::ostream& operator<<(std::ostream& os, const Fidelitate& Fidelitate)
     {
-        os<<Fidelitate.nume<<" "<<Fidelitate.nr_tlf<<" "<<Fidelitate.email<<" "<<Fidelitate.reducere<<" "<<Fidelitate.perioada_fd<<" "<<Fidelitate.x;
+        os<<Fidelitate.nume<<" "<<Fidelitate.nr_tlf<<" "<<Fidelitate.email<<" "<<Fidelitate.reducere<<" "<<Fidelitate.perioada_fid<<" "<<Fidelitate.x;
         return os;
     }
 
@@ -121,7 +122,7 @@ int main()
     crt.push_back(Carte("1984", "George Orwell","distopie",224, 20 ));
     dis.push_back(Distribuitor(12345, "Bookdepot", "Calea Plevnei 45" ));
     ang.push_back(Angajat("Cosmin Andrei",15 ,2345.60 ));
-    fid.push_back(Fidelitate("Trifoi Margareta", "0721456790", "trifoi@margareta.ro", 20, 4));
+    fid.push_back(Fidelitate("Trifoi Margareta", "0721456790", "trifoi@margareta.ro", 20, 4,{"1984", "George Orwell","distopie",224, 20}));
     aplicare_red();
     return 0;
 }
