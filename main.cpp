@@ -123,6 +123,6 @@ int main()
     dis.push_back(Distribuitor(12345, "Bookdepot", "Calea Plevnei 45" ));
     ang.push_back(Angajat("Cosmin Andrei",15 ,2345.60 ));
     fid.push_back(Fidelitate("Trifoi Margareta", "0721456790", "trifoi@margareta.ro", 20, 4,{"1984", "George Orwell","distopie",224, 20}));
-    aplicare_red();
+    fid.aplicare_red();
     return 0;
 }
