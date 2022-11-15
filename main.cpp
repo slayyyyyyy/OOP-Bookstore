@@ -121,7 +121,7 @@ int main()
     std::vector<Fidelitate> fid;
     crt.push_back(Carte("1984", "George Orwell","distopie",224, 20 ));
     dis.push_back(Distribuitor(12345, "Bookdepot", "Calea Plevnei 45" ));
-    ang.push_back(Angajat("Cosmin Andrei",15 ,2345.60 ));
+    ang.push_back(Angajat("Cosmin Andrei",15 ,2345.60f ));
     fid.push_back(Fidelitate("Trifoi Margareta", "0721456790", "trifoi@margareta.ro", 20, 4,{"1984", "George Orwell","distopie",224, 20}));
     fid[0].aplicare_red();
     return 0;
