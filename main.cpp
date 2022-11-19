@@ -43,22 +43,33 @@ private:
     std::string nume;
     int id_angajat;
     float salariu;
+    int perioada;
 public:
-    Angajat(const std::string& nume_, int id_angajat_,float salariu_) : nume{nume_}, id_angajat{id_angajat_}, salariu{salariu_}
+    Angajat(const std::string& nume_, int id_angajat_,float salariu_, int perioada_) : nume{nume_}, id_angajat{id_angajat_}, salariu{salariu_}, perioada{perioada_}
         {std::cout<<"constructor Angajat"<<'\n';};
-    Angajat(const Angajat& other) : nume{other.nume}, id_angajat{other.id_angajat}, salariu{other.salariu} {std::cout<<"Constructor de copiere Angajat\n";}
+    Angajat(const Angajat& other) : nume{other.nume}, id_angajat{other.id_angajat}, salariu{other.salariu}, perioada{other.perioada} {std::cout<<"Constructor de copiere Angajat\n";}
     Angajat& operator=(const Angajat& other)
     {
         nume = other.nume;
         id_angajat = other.id_angajat;
         salariu = other.salariu;
+        perioada=other.perioada;
         return *this;
     } //operator= + de adaugat constructor de copiere
     ~Angajat() {}; //destructor
     friend std::ostream& operator<<(std::ostream& os,const Angajat& Angajat)
     {
-        os<<Angajat.nume<<" "<<Angajat.id_angajat<<" "<<Angajat.salariu;
+        os<<Angajat.nume<<" "<<Angajat.id_angajat<<" "<<Angajat.salariu<<" "<<Angajat.perioada;
         return os;
+    }
+
+    void marire()
+    {
+        float s;
+        if (perioada != 0 && perioada % 12 == 0) {
+            s = salariu + salariu * 5 * (perioada / 12) / 100;
+            std::cout<<s<<'\n';
+        }
     }
 
 };
@@ -124,11 +135,12 @@ int main()
     crt.push_back(Carte("Micul Print", "Antoine de Saint-Exupery","copii",70, 15 ));
     crt.push_back(Carte("Ion", "Liviu Rebreanu","interbelic",268, 25 ));
     dis.push_back(Distribuitor(12345, "Bookdepot", "Calea Plevnei 45" ));
-    ang.push_back(Angajat("Cosmin Andrei",15 ,2345.60f ));
-    ang.push_back(Angajat("Badulescu Raluca",23 ,2465.70f ));
+    ang.push_back(Angajat("Cosmin Andrei",15 ,2345.60f, 4 ));
+    ang.push_back(Angajat("Badulescu Raluca",23 ,2465.70f, 12 ));
     fid.push_back(Fidelitate("Trifoi Margareta", "0721456790", "trifoi@margareta.ro", 10, 4,{"1984", "George Orwell","distopie",224, 20}));
     fid.push_back(Fidelitate("Marginean Sara", "0753534210", "saratzika@yahoo.ro", 20, 7,{"Fratii Karamazov", "Fyodor Dostoievski","fictiune filozofica",780, 40}));
     fid[0].aplicare_red();
     fid[1].aplicare_red();
+    ang[1].marire();
     return 0;
 }
