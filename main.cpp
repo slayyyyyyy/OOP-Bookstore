@@ -91,7 +91,7 @@ public:
         {
             float y=x.getpret()-reducere*x.getpret()/100;
             x.setpret(y);
-            std::cout<<x.getpret();
+            std::cout<<x.getpret()<<'\n';
         }
     };
 
@@ -99,12 +99,12 @@ public:
 };
 
 class Librarie{
-    Carte crt;
-    Angajat ang;
+    std::vector<Carte> crt[100];
+    std::vector<Angajat> ang[20];
     Distribuitor dis;
-    Fidelitate fid;
+    std::vector<Fidelitate> fid[40];
 public:
-    Librarie(Carte crt_, Angajat ang_, Distribuitor dis_, Fidelitate fid_) : crt{crt_}, ang{ang_}, dis{dis_}, fid{fid_}
+    Librarie(const std::vector<Carte> crt_, const std::vector<Angajat> ang_, Distribuitor dis_, const std::vector<Fidelitate> fid_) : crt{crt_}, ang{ang_}, dis{dis_}, fid{fid_}
         {std::cout<<"constructor Librarie"<<'\n';};
     friend std::ostream& operator<<(std::ostream& os, const Librarie& Librarie)
     {
@@ -120,9 +120,15 @@ int main()
     std::vector<Angajat> ang;
     std::vector<Fidelitate> fid;
     crt.push_back(Carte("1984", "George Orwell","distopie",224, 20 ));
+    crt.push_back(Carte("Fratii Karamazov", "Fyodor Dostoievski","fictiune filozofica",780, 40 ));
+    crt.push_back(Carte("Micul Print", "Antoine de Saint-Exupery","copii",70, 15 ));
+    crt.push_back(Carte("Ion", "Liviu Rebreanu","interbelic",268, 25 ));
     dis.push_back(Distribuitor(12345, "Bookdepot", "Calea Plevnei 45" ));
     ang.push_back(Angajat("Cosmin Andrei",15 ,2345.60f ));
-    fid.push_back(Fidelitate("Trifoi Margareta", "0721456790", "trifoi@margareta.ro", 20, 4,{"1984", "George Orwell","distopie",224, 20}));
+    ang.push_back(Angajat("Badulescu Raluca",23 ,2465.70f ));
+    fid.push_back(Fidelitate("Trifoi Margareta", "0721456790", "trifoi@margareta.ro", 10, 4,{"1984", "George Orwell","distopie",224, 20}));
+    fid.push_back(Fidelitate("Marginean Sara", "0753534210", "saratzika@yahoo.ro", 20, 7,{"Fratii Karamazov", "Fyodor Dostoievski","fictiune filozofica",780, 40}));
     fid[0].aplicare_red();
+    fid[1].aplicare_red();
     return 0;
 }
