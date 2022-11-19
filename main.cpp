@@ -65,9 +65,8 @@ public:
 
     void marire()
     {
-        float s;
         if (perioada != 0 && perioada % 12 == 0) {
-            s = salariu + salariu * 5 * (perioada / 12) / 100;
+            float s = salariu + salariu * 5 * (perioada / 12) / 100;
             std::cout<<s<<'\n';
         }
     }
@@ -83,7 +82,7 @@ private:
     int perioada_fid;
     Carte x;
 public:
-    Fidelitate(const std::string& nume_, const std::string& nr_tlf_, const std::string& email_, int reducere_, int perioada_fid_, Carte x_) : 
+    Fidelitate(const std::string& nume_, const std::string& nr_tlf_, const std::string& email_, int reducere_, int perioada_fid_,const Carte& x_) :
     nume{nume_}, nr_tlf{nr_tlf_}, email{email_}, reducere{reducere_}, perioada_fid{perioada_fid_}, x{x_}
 
             {std::cout<<"constructor Fidelitate"<<'\n';};
@@ -115,7 +114,7 @@ class Librarie{
     Distribuitor dis;
     std::vector<Fidelitate> fid[40];
 public:
-    Librarie(const std::vector<Carte>& crt_, const std::vector<Angajat>& ang_, Distribuitor dis_, const std::vector<Fidelitate>& fid_) : crt{crt_}, ang{ang_}, dis{dis_}, fid{fid_}
+    Librarie(const std::vector<Carte>& crt_, const std::vector<Angajat>& ang_, const Distribuitor& dis_, const std::vector<Fidelitate>& fid_) : crt{crt_}, ang{ang_}, dis{dis_}, fid{fid_}
         {std::cout<<"constructor Librarie"<<'\n';};
     friend std::ostream& operator<<(std::ostream& os, const Librarie& Librarie)
     {
