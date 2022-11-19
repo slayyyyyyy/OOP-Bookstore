@@ -115,7 +115,7 @@ class Librarie{
     Distribuitor dis;
     std::vector<Fidelitate> fid[40];
 public:
-    Librarie(const std::vector<Carte> crt_, const std::vector<Angajat> ang_, Distribuitor dis_, const std::vector<Fidelitate> fid_) : crt{crt_}, ang{ang_}, dis{dis_}, fid{fid_}
+    Librarie(const std::vector<Carte>& crt_, const std::vector<Angajat>& ang_, Distribuitor dis_, const std::vector<Fidelitate>& fid_) : crt{crt_}, ang{ang_}, dis{dis_}, fid{fid_}
         {std::cout<<"constructor Librarie"<<'\n';};
     friend std::ostream& operator<<(std::ostream& os, const Librarie& Librarie)
     {
