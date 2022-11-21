@@ -109,16 +109,22 @@ public:
 };
 
 class Librarie{
-    std::vector<Carte> crt[100];
-    std::vector<Angajat> ang[20];
+    std::vector<Carte> crt;
+    std::vector<Angajat> ang;
     Distribuitor dis;
-    std::vector<Fidelitate> fid[40];
+    std::vector<Fidelitate> fid;
 public:
     Librarie(const std::vector<Carte>& crt_, const std::vector<Angajat>& ang_, const Distribuitor& dis_, const std::vector<Fidelitate>& fid_) : crt{crt_}, ang{ang_}, dis{dis_}, fid{fid_}
         {std::cout<<"constructor Librarie"<<'\n';};
     friend std::ostream& operator<<(std::ostream& os, const Librarie& Librarie)
     {
-        os<<Librarie.crt<<" "<<Librarie.ang<<" "<<Librarie.dis<<" "<<Librarie.fid;
+        for(const auto& carte:Librarie.crt)
+            os<<carte<<" ";
+        for(const auto& angajat:Librarie.ang)
+            os<<angajat<<" ";
+        os<<Librarie.dis<<" ";
+        for(const auto& fidelitate:Librarie.fid)
+            os<<fidelitate;
         return os;
     }
 };
