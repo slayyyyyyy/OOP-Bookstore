@@ -18,9 +18,9 @@ void Carte::afisare() {
 }
 
 void Carte::reducere() {
-    float y=x.getpret()-0*x.getpret()/100;
-    x.setpret(y);
-    std::cout<<x.getpret()<<'\n';
+    float x = 0;
+    float y=x-0*x/100;
+    std::cout<<y<<'\n';
 }
 
 
