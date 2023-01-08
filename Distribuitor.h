@@ -5,6 +5,7 @@
 #include<string>
 
 
+
 class Distribuitor{
 private:
     int id_distribuitor;

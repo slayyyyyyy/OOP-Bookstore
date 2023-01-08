@@ -8,9 +8,10 @@
 
 
 class Carte{
-private:
+protected:
     std::string nume;
     std::string autor;
+private:
     std::string genre;
     int nr_pag;
     float pret;
@@ -20,6 +21,12 @@ public:
 
     float getpret() const;
     void setpret (float pret_);
+
+    virtual void afisare();
+
+    virtual void reducere();
+
+    virtual ~Carte() {}
 };
 
 

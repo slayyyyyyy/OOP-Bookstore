@@ -6,7 +6,7 @@
 
 
 
-class Angajat{
+class Angajat {
 private:
     std::string nume;
     int id_angajat;

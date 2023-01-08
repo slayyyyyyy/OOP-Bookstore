@@ -12,3 +12,13 @@ std::ostream &operator<<(std::ostream &os, const Carte &Carte) {
 float Carte::getpret() const {return pret;}
 
 void Carte::setpret(float pret_) {pret=pret_;}
+
+void Carte::afisare() {
+    std::cout<<*this;
+}
+
+void Carte::reducere() {
+
+}
+
+
