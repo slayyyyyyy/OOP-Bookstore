@@ -17,10 +17,20 @@ void Carte::afisare() {
     std::cout<<*this;
 }
 
-void Carte::reducere() {
-    float x = 0;
-    float y=x-0*x/100;
-    std::cout<<y<<'\n';
+void Carte::reducere() { }
+
+Carte::Carte(const Carte &other)
+        : nume(other.nume), autor(other.autor), genre(other.genre), nr_pag(other.nr_pag), pret(other.pret) {}
+
+Carte &Carte::operator=(const Carte &other) {
+    if (this != &other) {
+        nume = other.nume;
+        autor = other.autor;
+        genre = other.genre;
+        nr_pag = other.nr_pag;
+        pret = other.pret;
+    }
+    return *this;
 }
 
 

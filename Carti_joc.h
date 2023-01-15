@@ -5,8 +5,8 @@
 
 
 class Carti_joc: public Carte {
-public:
-    Carte x;
+    Carti_joc(const std::string& nume_,const std::string& autor_, const std::string& genre_, int nr_pag_, float pret_);
+    Carti_joc(const Carti_joc& other);
     void reducere() override;
 
 };

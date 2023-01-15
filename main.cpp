@@ -5,6 +5,11 @@
 #include"Distribuitor.h"
 #include"Angajat.h"
 #include"Fidelitate.h"
+#include "Carti_copii.h"
+#include "Carti_desenat.h"
+#include "Carti_joc.h"
+#include "Enciclopedie.h"
+#include "Librarie.h"
 
 int main()
 {
@@ -14,7 +19,7 @@ int main()
     std::vector<Fidelitate> fid;
     crt.push_back(Carte("1984", "George Orwell","distopie",224, 20 ));
     crt.push_back(Carte("Fratii Karamazov", "Fyodor Dostoievski","fictiune filozofica",780, 40 ));
-    crt.push_back(Carte("Micul Print", "Antoine de Saint-Exupery","copii",70, 15 ));
+    crt.push_back(Carte("Fluturi", "Irina Binder","romance",328, 15 ));
     crt.push_back(Carte("Ion", "Liviu Rebreanu","interbelic",268, 25 ));
     dis.push_back(Distribuitor(12345, "Bookdepot", "Calea Plevnei 45" ));
     ang.push_back(Angajat("Cosmin Andrei",15 ,2345.60f, 4 ));
@@ -24,5 +29,8 @@ int main()
     fid[0].aplicare_red();
     fid[1].aplicare_red();
     ang[1].marire();
+
+    Carti_desenat Cartedesenat1("Sa desenam", "Lydia Bubble", "pentru adulti", 30, 43);
+    std::cout<<Cartedesenat1.getpret();
     return 0;
 }

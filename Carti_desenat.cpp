@@ -1,8 +1,10 @@
 #include "Carti_desenat.h"
 
 void Carti_desenat::reducere() {
-
-    float y=x.getpret()-25*x.getpret()/100;
-    x.setpret(y);
-    std::cout<<x.getpret()<<'\n';
+    pret=pret-25*pret/100;
+    std::cout<<pret<<'\n';
 }
+
+Carti_desenat::Carti_desenat(const std::string &nume_, const std::string &autor_, const std::string &genre_, int nr_pag_,
+                     float pret_)
+        : Carte(nume_, autor_, genre_, nr_pag_, pret_) {}
