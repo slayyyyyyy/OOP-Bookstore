@@ -2,7 +2,6 @@
 #include "Carti_joc.h"
 
 void Carti_joc::reducere() {
-
     pret=pret-55*pret/100;
     std::cout<<pret<<'\n';
 }
