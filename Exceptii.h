@@ -11,6 +11,12 @@ class eroare_carte: public eroare_clase{
 public:
     explicit eroare_carte(const std::string &mesaj);
 
+
+};
+
+class eroare_angajat: public eroare_clase{
+public:
+    explicit eroare_angajat(const std::string &mesaj);
 };
 
 
