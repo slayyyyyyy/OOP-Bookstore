@@ -5,6 +5,7 @@
 #include <iostream>
 #include<vector>
 #include<string>
+#include "Exceptii.h"
 
 
 class Carte{
@@ -30,6 +31,8 @@ public:
     virtual void reducere();
 
     virtual ~Carte() {} //destructor virtual
+
+
 };
 
 

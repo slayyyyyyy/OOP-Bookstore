@@ -3,7 +3,10 @@
 #include "Carte.h"
 
 Carte::Carte(const std::string &nume_, const std::string &autor_, const std::string &genre_, int nr_pag_, float pret_) : nume{nume_}, autor{autor_}, genre{genre_}, nr_pag{nr_pag_}, pret{pret_}
-{std::cout<<"constructor Carte"<<'\n';}
+{std::cout<<"constructor Carte"<<'\n';
+    if (genre != "beletristica" && genre != "istoric" && genre != "distopie" && genre != "romance" && genre != "interbelic" && genre != "fictiune filozofica")
+            throw eroare_carte("Nu exista acest gen!");
+    }
 
 std::ostream &operator<<(std::ostream &os, const Carte &Carte) {
     os<<Carte.nume<<" "<<Carte.autor<<" "<<Carte.genre<<" "<<Carte.nr_pag<<" "<<Carte.pret;
@@ -32,5 +35,7 @@ Carte &Carte::operator=(const Carte &other) {
     }
     return *this;
 }
+
+
 
 

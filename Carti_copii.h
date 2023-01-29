@@ -4,7 +4,8 @@
 
 
 class Carti_copii : public Carte {
-    Carti_copii(const std::string& nume_,const std::string& autor_, const std::string& genre_, int nr_pag_, float pret_);
+    std::string tip;
+    Carti_copii(const std::string& tip_, const std::string& nume_,const std::string& autor_, const std::string& genre_, int nr_pag_, float pret_);
     Carti_copii(const Carti_copii& other);
     void afisare() override;
     void reducere() override;

@@ -21,6 +21,7 @@ int main()
     crt.push_back(Carte("Fratii Karamazov", "Fyodor Dostoievski","fictiune filozofica",780, 40 ));
     crt.push_back(Carte("Fluturi", "Irina Binder","romance",328, 15 ));
     crt.push_back(Carte("Ion", "Liviu Rebreanu","interbelic",268, 25 ));
+    crt.push_back(Carte("Margareta","Petre Ispirescu", "balzacian", 104, 32));
     dis.push_back(Distribuitor(1, "Bookdepot", "Calea Plevnei 45" ));
     ang.push_back(Angajat("Cosmin Andrei",15 ,2345.60f, 4 ));
     ang.push_back(Angajat("Badulescu Raluca",23 ,2465.70f, 12 ));
