@@ -2,7 +2,9 @@
 
 #include "Carte.h"
 
-Carte::Carte(const std::string &nume_, const std::string &autor_, const std::string &genre_, int nr_pag_, float pret_) : nume{nume_}, autor{autor_}, genre{genre_}, nr_pag{nr_pag_}, pret{pret_}
+#include <utility>
+
+Carte::Carte(std::string nume_, std::string autor_, std::string genre_, int nr_pag_, float pret_) : nume{std::move(nume_)}, autor{std::move(autor_)}, genre{std::move(genre_)}, nr_pag{nr_pag_}, pret{pret_}
 {std::cout<<"constructor Carte"<<'\n';
     if (genre != "beletristica" && genre != "istoric" && genre != "distopie" && genre != "romance" && genre != "interbelic" && genre != "fictiune filozofica" && genre != "pentru adulti")
             throw eroare_carte("Nu exista acest gen!");

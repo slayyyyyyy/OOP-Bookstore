@@ -46,7 +46,5 @@ int main()
     Carti_desenat Cartedesenat1("Sa desenam", "Lydia Bubble", "pentru adulti", 30, 43);
     std::cout<< Cartedesenat1.getpret();
 
-
-
     return 0;
 }

@@ -14,7 +14,7 @@ private:
     std::string adresa;
 public:
     Distribuitor();
-    Distribuitor(int id_distribuitor_, const std::string& nume_,const std::string& adresa_);
+    Distribuitor(int id_distribuitor_, std::string  nume_,std::string  adresa_);
     friend std::ostream& operator<<(std::ostream& os, const Distribuitor& Distribuitor);
 };
 

@@ -20,7 +20,7 @@ private:
     Distribuitor dis;
     std::vector<Fidelitate<int>> fid;
 public:
-    Librarie(const std::vector<Carte*>& crt_, const std::vector<Angajat>& ang_, const Distribuitor& dis_, const std::vector<Fidelitate<int>>& fid_);
+    Librarie(std::vector<Carte*>  crt_, std::vector<Angajat>  ang_, Distribuitor  dis_, std::vector<Fidelitate<int>>  fid_);
     friend std::ostream& operator<<(std::ostream& os, const Librarie& Librarie);
 
     void addCarte(Carte* carte);

@@ -16,7 +16,7 @@ protected:
     int nr_pag;
     float pret;
 public:
-    Carte(const std::string& nume_,const std::string& autor_,const std::string& genre_, int nr_pag_, float pret_ );
+    Carte(std::string  nume_,std::string  autor_,std::string  genre_, int nr_pag_, float pret_ );
 
     friend std::ostream& operator<<(std::ostream& os, const Carte& Carte);
 

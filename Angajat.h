@@ -15,21 +15,14 @@ private:
     int perioada;
     int varsta;
 public:
-    Angajat(const std::string& nume_, int id_angajat_,float salariu_, int perioada_, int varsta_);
+    Angajat(std::string  nume_, int id_angajat_,float salariu_, int perioada_, int varsta_);
     Angajat(const Angajat& other);
     Angajat& operator=(const Angajat& other)
-    {
-        nume = other.nume;
-        id_angajat = other.id_angajat;
-        salariu = other.salariu;
-        perioada=other.perioada;
-        varsta=other.varsta;
-        return *this;
-    } //operator= + de adaugat constructor de copiere
+    = default; //operator= + de adaugat constructor de copiere
     ~Angajat(); //destructor
     friend std::ostream& operator<<(std::ostream& os,const Angajat& Angajat);
 
-    void marire();
+    void marire() const;
 
 };
 

@@ -1,6 +1,8 @@
 #include "Librarie.h"
-Librarie::Librarie(const std::vector <Carte*> &crt_, const std::vector <Angajat> &ang_, const Distribuitor &dis_,
-                   const std::vector <Fidelitate<int>> &fid_) : crt{crt_}, ang{ang_}, dis{dis_}, fid{fid_}
+
+#include <utility>
+Librarie::Librarie(std::vector <Carte*> crt_, std::vector <Angajat> ang_, Distribuitor dis_,
+                   std::vector <Fidelitate<int>> fid_) : crt{std::move(crt_)}, ang{std::move(ang_)}, dis{std::move(dis_)}, fid{std::move(fid_)}
 {std::cout<<"constructor Librarie"<<'\n';}
 
 std::ostream &operator<<(std::ostream &os, const Librarie &Librarie) {
