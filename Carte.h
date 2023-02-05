@@ -30,7 +30,7 @@ public:
 
     virtual void reducere();
 
-    virtual ~Carte() {} //destructor virtual
+    virtual ~Carte() = default; //destructor virtual
 
 
 };

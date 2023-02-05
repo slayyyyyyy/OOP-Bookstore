@@ -9,6 +9,6 @@ Carti_desenat::Carti_desenat(const std::string &nume_, const std::string &autor_
                      float pret_)
         : Carte(nume_, autor_, genre_, nr_pag_, pret_) {}
 
-Carti_desenat::Carti_desenat(const Carte &other1, const Carti_desenat &other) : Carte(other1) {
 
-}
+
+
