@@ -17,7 +17,7 @@ int main()
     std::vector<Carte> crt;
     std::vector<Distribuitor> dis;
     std::vector<Angajat> ang;
-    std::vector<Fidelitate> fid;
+    std::vector<Fidelitate<int>> fid;
     try {
         crt.push_back(Carte("1984", "George Orwell", "distopie", 224, 20));
         crt.push_back(Carte("Fratii Karamazov", "Fyodor Dostoievski", "fictiune filozofica", 780, 40));
@@ -37,14 +37,14 @@ int main()
     catch(eroare_angajat &error)
     {std::cout<<error.what()<<"\n";}
 
-    fid.push_back(Fidelitate("Trifoi Margareta", "0721456790", "trifoi@margareta.ro", 10, 4,{"1984", "George Orwell","distopie",224, 20}));
-    fid.push_back(Fidelitate("Marginean Sara", "0753534210", "saratzika@yahoo.ro", 20, 7,{"Fratii Karamazov", "Fyodor Dostoievski","fictiune filozofica",780, 40}));
+    fid.push_back(Fidelitate<int>("Trifoi Margareta", "0721456790", "trifoi@margareta.ro", 10, 4,{"1984", "George Orwell","distopie",224, 20},0));
+    fid.push_back(Fidelitate("Marginean Sara", "0753534210", "saratzika@yahoo.ro", 20, 7,{"Fratii Karamazov", "Fyodor Dostoievski","fictiune filozofica",780, 80},0));
     fid[0].aplicare_red();
     fid[1].aplicare_red();
     ang[1].marire();
 
     Carti_desenat Cartedesenat1("Sa desenam", "Lydia Bubble", "pentru adulti", 30, 43);
-    std::cout<<Cartedesenat1.getpret();
+    std::cout<< Cartedesenat1.getpret();
 
 
 

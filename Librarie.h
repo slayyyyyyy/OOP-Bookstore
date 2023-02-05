@@ -18,9 +18,9 @@ private:
     std::vector<Carte*> crt;
     std::vector<Angajat> ang;
     Distribuitor dis;
-    std::vector<Fidelitate> fid;
+    std::vector<Fidelitate<int>> fid;
 public:
-    Librarie(const std::vector<Carte*>& crt_, const std::vector<Angajat>& ang_, const Distribuitor& dis_, const std::vector<Fidelitate>& fid_);
+    Librarie(const std::vector<Carte*>& crt_, const std::vector<Angajat>& ang_, const Distribuitor& dis_, const std::vector<Fidelitate<int>>& fid_);
     friend std::ostream& operator<<(std::ostream& os, const Librarie& Librarie);
 
     void addCarte(Carte* carte);
