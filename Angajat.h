@@ -22,7 +22,7 @@ public:
     ~Angajat(); //destructor
     friend std::ostream& operator<<(std::ostream& os,const Angajat& Angajat);
 
-    void marire() const;
+    void marire();
 
 };
 
