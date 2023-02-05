@@ -19,7 +19,6 @@ std::ostream &operator<<(std::ostream &os, const Angajat &Angajat) {
 
 void Angajat::marire()   {
     if (perioada != 0 && perioada % 12 == 0) {
-        float s = salariu + salariu * 5 * (perioada / 12) / 100;
-        std::cout<<s<<'\n';
+        std::cout<< salariu + salariu * 5 * (perioada / 12) / 100<<'\n';
     }
 }
