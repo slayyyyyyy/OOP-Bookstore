@@ -28,7 +28,7 @@ int main()
     catch(eroare_carte &error)
     {std::cout<<error.what()<<"\n";}
 
-    dis.push_back(Distribuitor(1, "Bookdepot", "Calea Plevnei 45" ));
+    //dis.push_back(Distribuitor(1, "Bookdepot", "Calea Plevnei 45" ));
 
     try {
         ang.push_back(Angajat("Cosmin Andrei", 15, 2345.60f, 4, 20));
